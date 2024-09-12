@@ -1,13 +1,15 @@
-from django.test import TestCase
+from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
+from django.test import TestCase
+
 from taxi.forms import (
     CarForm,
     DriverCreationForm,
     DriverLicenseUpdateForm,
     validate_license_number,
 )
+
 from taxi.models import Car, Manufacturer
-from django.core.exceptions import ValidationError
 
 
 class CarFormTests(TestCase):
