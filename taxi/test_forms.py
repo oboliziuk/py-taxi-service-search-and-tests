@@ -13,14 +13,23 @@ from django.core.exceptions import ValidationError
 class CarFormTests(TestCase):
     def setUp(self):
         self.driver1 = get_user_model().objects.create_user(
-            username="driver1", license_number="ABC12345", password="password123"
+            username="driver1",
+            license_number="ABC12345",
+            password="password123"
         )
         self.driver2 = get_user_model().objects.create_user(
-            username="driver2", license_number="DEF67890", password="password123"
+            username="driver2",
+            license_number="DEF67890",
+            password="password123"
         )
 
-        self.manufacturer = Manufacturer.objects.create(name="TestManufacturer")
-        self.car = Car.objects.create(model="TestModel", manufacturer=self.manufacturer)
+        self.manufacturer = Manufacturer.objects.create(
+            name="TestManufacturer"
+        )
+        self.car = Car.objects.create(
+            model="TestModel",
+            manufacturer=self.manufacturer
+        )
 
     def test_car_form_valid_data(self):
         form_data = {
@@ -71,7 +80,9 @@ class DriverCreationFormTests(TestCase):
 class DriverLicenseUpdateFormTests(TestCase):
     def setUp(self):
         self.driver = get_user_model().objects.create_user(
-            username="driver1", license_number="ABC12345", password="password123"
+            username="driver1",
+            license_number="ABC12345",
+            password="password123"
         )
 
     def test_license_update_form_valid(self):
